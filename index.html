@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Power Control</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="btn-group">
+			<div class="dropdown">
+				<button class="btn btn-warning btn-outline m-b-10 m-l-5 dropdown-toggle" type="button" id="menu1" onclick="shows($(this).text())">OFF 
+				</button>
+			</div>
+		</div>
+	</body>
+	<script>window.$ = window.jQuery = require("./assets/js/lib/jquery.min.js")</script>
+	<script>
+		function shows(text) {
+			console.log(text);
+			let confirm_info = "You will turn off the tester!";
+			const { dialog } = require('electron').remote
+			let message_ret = dialog.showMessageBoxSync(null, {
+				type:'warning',
+				buttons: ['Yes', 'No'],
+				defaultId: 1,
+				cancelId: 1,
+				title: 'Power Control',
+				message: confirm_info,
+			});
+		}
+	</script>
+</html>
